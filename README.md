@@ -126,6 +126,11 @@ OpenShift
 Red Hat OpenShift on AWS
 
 
+Spring Boot and OpenShift 
+https://learn.openshift.com/middleware/courses/middleware-spring-boot/
+
+
+
 
 https://aws.amazon.com/quickstart/architecture/openshift/
 
