@@ -32,7 +32,7 @@ Kubernetes Training
 		* Spring MVC
 		* Spring Boot demo
 		* Lab Basic Spring App
-		* Lab Docker and Konfig
+		* Lab Docker and Kustomize
 		* Lab Deploy app to Kubernetes (KIND, MiniKube, OpenShift CodeReady, GKE or EKS or ... etc.)  
 	* Spring Boot and Kubernetes collaborating services 
 		* Multiple services 
