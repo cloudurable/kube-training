@@ -119,3 +119,36 @@ Kubernetes Training
 * Quarkus
 * Python
 * Go
+
+
+OpenShift 
+
+Red Hat OpenShift on AWS
+
+
+
+https://aws.amazon.com/quickstart/architecture/openshift/
+
+https://github.com/aws-quickstart/quickstart-redhat-openshift
+
+
+Free OpenShift course
+
+https://learn.openshift.com/
+
+https://www.ibm.com/cloud/blog/deploying-helm-charts-on-openshift
+
+https://blog.openshift.com/getting-started-helm-openshift/
+
+
+
+
+OSE docs
+
+https://docs.openshift.com/container-platform/4.2/service_mesh/service_mesh_arch/understanding-ossm.html
+
+
+OSE mini container 
+
+
+https://developers.redhat.com/products/codeready-containers/overview
