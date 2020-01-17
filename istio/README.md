@@ -10,4 +10,4 @@
 * [C4 PlantUML](https://github.com/RicardoNiepel/C4-PlantUML)
 * [PlantUML](https://plantuml.com/)
 * [Brew for PlantUML](https://formulae.brew.sh/formula/plantuml)
-* [](images/test.png)
+* ![](images/test.png)
