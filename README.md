@@ -8,6 +8,7 @@ Kubernetes Training
 	* uServices
 		* Intro
 			* Why Microservices?
+				With microservices, your code is broken into independent services that run as separate processes. Output from one service is used as an input to another in an orchestration of independent, communicating services. Microservices is especially useful for businesses that do not have a pre-set idea of the array of devices its applications will support. By being device- and platform-agnostic, microservices enables businesses to develop applications that provide consistent user experiences across a range of platforms, spanning the web, mobile, IoT, wearables and fitness tracker environments.
 		* Architecture
 			* Scale and Distribution
 			* Multi-tenancy
