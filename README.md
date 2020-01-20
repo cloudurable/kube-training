@@ -28,13 +28,21 @@ Kubernetes Training
 			Docker makes really easy to install and run new software without worrying about setup or dependencies.
 		* **What is Docker?**
 			Docker is a platform or ecosystem around creating and running containers. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
-					
-					
-	    		* Container orchestration
-			
-			
-			
-	    		* Containers Pods, Deployments and Services 
+		* **Container orchestration**
+			Conteiner orchestration is all about managing the lifecycles of containers, especially in large, dynamic environments. DevOps teams use container orchestration to control and automate many tasks, included:
+			* Provisioning and deployment of containers;
+			* Redundancy and availability of containers;
+			* Slaing up or removing containers to spread application load evenly across host infrastructure;
+			* Movement of containers from one host to another if there is a shortage of resources in a host, or if a host dies;
+			* Allocation of resources between containers;
+			* External exposure of services running in a container with the outside world;
+			* Load balancing of service discovery between containers;
+			* Health monitoring of containers and hosts;
+			* Configuration of an application in relation to the containers running it.
+			A exemple of container orchestrator is **Kubernetes** or **Docker Swarm**.
+		
+		
+		* **Containers Pods, Deployments and Services** 
 			
 			
 			
