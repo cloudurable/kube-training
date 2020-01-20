@@ -39,7 +39,8 @@ Kubernetes Training
 			* Load balancing of service discovery between containers;
 			* Health monitoring of containers and hosts;
 			* Configuration of an application in relation to the containers running it.
-			A exemple of container orchestrator is **Kubernetes** or **Docker Swarm**.
+			
+			An exemple of container orchestrator is **Kubernetes** or **Docker Swarm**.
 		
 		
 		* **Containers Pods, Deployments and Services** 
