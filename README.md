@@ -22,17 +22,12 @@ Kubernetes Training
 	* Container Orchestrations with Kubernetes
 		
 	* Docker containers
-		* What is a container?
-				
-					A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another
-				
-				Why use Docker?
-				
-					Docker makes really easy to install and run new software without worrying about setup or dependencies.
-					
-				What is Docker?
-					
-					Docker is a platform or ecosystem around creating and running containers. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+		* **What is a container?**
+			A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
+		* **Why use Docker?**
+			Docker makes really easy to install and run new software without worrying about setup or dependencies.
+		* **What is Docker?**
+			Docker is a platform or ecosystem around creating and running containers. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
 					
 					
 	    		* Container orchestration
