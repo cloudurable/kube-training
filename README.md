@@ -14,24 +14,17 @@ Kubernetes Training
 			* Why Microservices?
 				
 				With microservices, your code is broken into independent services that run as separate processes. Output from one service is used as an input to another in an orchestration of independent, communicating services. Microservices is especially useful for businesses that do not have a pre-set idea of the array of devices its applications will support. By being device- and platform-agnostic, microservices enables businesses to develop applications that provide consistent user experiences across a range of platforms, spanning the web, mobile, IoT, wearables and fitness tracker environments.
+		
+			* Scale and Distribution
+			
+				With uServices you can scale and distribute your application horizontally, only in the necessary services and not in your entire application, making it more intelligent and efficient in terms of performance and costs. Currently, cloud structures and uServices have Autoscaling functionality, which can increase the number of services when demand is high and the number of instances decreases when there is no demand, helping you to reducing costs.
 				
 		
-		* Architecture
-			* Scale and Distribution
-			* Multi-tenancy
-			* Service integration
-		* Platform
-			* Global view
-			* Components
-			* Fondation services
-		* Operation
-			* DevOps
-			* Deploy Strategies
-	* Container Orchestrations with Kubernetes
-	    * Docker containers 
-	    * Container orchestration 
-	    * Containers Pods, Deployments and Services 
-	    * Kubernetes Architecture 
+		* Container Orchestrations with Kubernetes
+	    		* Docker containers 
+	    		* Container orchestration 
+	    		* Containers Pods, Deployments and Services 
+	    		* Kubernetes Architecture 
 * Spring Boot with Kubernetes
 	* Spring Boot and Kubernetes basics
 		* Intro
