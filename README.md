@@ -19,12 +19,10 @@ Kubernetes Training
 			
 				With uServices you can scale and distribute your application horizontally, only in the necessary services and not on your entire application, making it more intelligent and efficient in terms of performance and costs. Currently, cloud structures and uServices have Autoscaling functionality, which can increase the number of services when demand is high and the number of instances decreases when there is no demand, helping you in reducing costs.
 				
+	* Container Orchestrations with Kubernetes
 		
-		* Container Orchestrations with Kubernetes
-		
-	    		* Docker containers
-			
-				What is a container?
+	* Docker containers
+		* What is a container?
 				
 					A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another
 				
