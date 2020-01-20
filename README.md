@@ -17,14 +17,36 @@ Kubernetes Training
 		
 			* Scale and Distribution
 			
-				With uServices you can scale and distribute your application horizontally, only in the necessary services and not in your entire application, making it more intelligent and efficient in terms of performance and costs. Currently, cloud structures and uServices have Autoscaling functionality, which can increase the number of services when demand is high and the number of instances decreases when there is no demand, helping you to reducing costs.
+				With uServices you can scale and distribute your application horizontally, only in the necessary services and not on your entire application, making it more intelligent and efficient in terms of performance and costs. Currently, cloud structures and uServices have Autoscaling functionality, which can increase the number of services when demand is high and the number of instances decreases when there is no demand, helping you in reducing costs.
 				
 		
 		* Container Orchestrations with Kubernetes
-	    		* Docker containers 
-	    		* Container orchestration 
+		
+	    		* Docker containers
+				What is a container?
+				
+					A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another
+				
+				Why use Docker?
+				
+					Docker makes really easy to install and run new software without worrying about setup or dependencies.
+					
+				What is Docker?
+					
+					Docker is a platform or ecosystem around creating and running containers. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+					
+					
+	    		* Container orchestration
+			
+			
+			
 	    		* Containers Pods, Deployments and Services 
+			
+			
+			
 	    		* Kubernetes Architecture 
+			
+			
 * Spring Boot with Kubernetes
 	* Spring Boot and Kubernetes basics
 		* Intro
