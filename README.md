@@ -28,6 +28,11 @@ Kubernetes Training
 			Docker makes really easy to install and run new software without worrying about setup or dependencies.
 		* **What is Docker?**
 			Docker is a platform or ecosystem around creating and running containers. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+		* **Docker objects**
+			When you use Docker, you will create and will use some objects like as:
+			* Images
+			* Containers
+			* Services
 		* **Container orchestration**
 			Conteiner orchestration is all about managing the lifecycles of containers, especially in large, dynamic environments. DevOps teams use container orchestration to control and automate many tasks, included:
 			* Provisioning and deployment of containers;
@@ -41,13 +46,29 @@ Kubernetes Training
 			* Configuration of an application in relation to the containers running it.
 			
 			An exemple of container orchestrator is **Kubernetes** or **Docker Swarm**.
+			
+	* Kubernetes
+		* What is?
+			Originally developed by Google, Kubernetes has established itself as the *de facto* standard for container orchestration. It continues to gain popularity with DevOps pratictoners because it allows them to deliver a self-service Platform-as-a-Service (PaaS) that creates a layer abstraction for development teams and Kubernetes is also extremely portable. You can run Kubernetes projects on Amazon Web Services (AWS), Microsoft Azure (AKS), the Google Cloud Plataform (GCP), Red Hat OpenShift, or in on-premise installations. You can move workloads without having to redesign your applications or completely rethink your infrastructure.
+		* Architecture:
+			The main architecture components of Kubernetes include:
+			* **Cluster**
+				A cluster is a set of nodes with at least one master node and several work nodes that can be virtual or physical machines.
+			* **Kubernetes Master**
+				The master manages the scheduling and deployment of application instances across nodes, and the full set of services the master node runs is known as *the control plane*. The master communicates with nodes through the Kubernets API server. The scheduler assigns nodes to pods (one or more containers) depending on the resource and policy constraints you have defined.
+			* **Kubelet**
+				Is the agent that runs in each kubernetes node. It is responsible for managing the state of the node: starting, stopping, and maintaining application containers based on instructions from the control plane. The kubelet receives all of its information from the Kubernets API server.
+			* **Pods**
+				The basic sheduling unit, which consists of one or more containers guaranteed to be colocated on the host machine and able to share resources. You describe the desired state of the containers in a pod through a YAML or JSON object called a PodSpec. These objects are passed to the kubelet through the API server.
+			* **Deployments, replicas, and ReplicaSets**
+				A deployment is a YAML object that defines the pods and the number of container instances, called replicas, for each pod. You define the number of replicas you want to have running in the cluster via ReplicaSet, which is part of the deployment object.
 		
 		
 		* **Containers Pods, Deployments and Services** 
 			
 			
 			
-	    		* Kubernetes Architecture 
+	    		
 			
 			
 * Spring Boot with Kubernetes
