@@ -8,15 +8,10 @@ Kubernetes Training
 	* uServices
 		* Intro
 			* Definition
-				
-				A microservice is essentially an autonomous software component that is independently upgradeable and scalable.
-				
-			* Why Microservices?
-				
+				A microservice is essentially an autonomous software component that is independently upgradeable and scalable.	
+			* Why Microservices?	
 				With microservices, your code is broken into independent services that run as separate processes. Output from one service is used as an input to another in an orchestration of independent, communicating services. Microservices is especially useful for businesses that do not have a pre-set idea of the array of devices its applications will support. By being device- and platform-agnostic, microservices enables businesses to develop applications that provide consistent user experiences across a range of platforms, spanning the web, mobile, IoT, wearables and fitness tracker environments.
-		
-			* Scale and Distribution
-			
+			* Scale and Distribution	
 				With uServices you can scale and distribute your application horizontally, only in the necessary services and not on your entire application, making it more intelligent and efficient in terms of performance and costs. Currently, cloud structures and uServices have Autoscaling functionality, which can increase the number of services when demand is high and the number of instances decreases when there is no demand, helping you in reducing costs.
 				
 	* Container Orchestrations with Kubernetes
@@ -30,9 +25,12 @@ Kubernetes Training
 			Docker is a platform or ecosystem around creating and running containers. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
 		* **Docker objects**
 			When you use Docker, you will create and will use some objects like as:
-			* Images
-			* Containers
-			* Services
+			* **Images**
+				An image is a read-only template with instructions for creating a Docker *container*. An image could be based on another image, with additional customization. You might create your own image or you can choose those created by others and published a registry.
+			* **Containers**
+				Container is a runnable instance of an image. A container is defined by its imge as well as any configuration options you provide to it when you create or start it. When container is removed, any changes to its state thare are not sotred in persistent storage disappear.
+			* **Services**
+				A service allows you to define the desired state, such as the number of replicas of the service that must be available at any given time. By default, the service is load-balanced across all worker nodes.
 		* **Container orchestration**
 			Conteiner orchestration is all about managing the lifecycles of containers, especially in large, dynamic environments. DevOps teams use container orchestration to control and automate many tasks, included:
 			* Provisioning and deployment of containers;
