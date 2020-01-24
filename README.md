@@ -22,10 +22,11 @@ Kubernetes Training
 		* **Why use Docker?**  
 		Docker makes really easy to install and run new software without worrying about setup or dependencies.
 		* **What is Docker?**  
-		Docker is a platform or ecosystem around creating and running containers. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+		Docker is a platform or ecosystem around creating and running containers.
 		* **Docker objects**  
 		When you use Docker, you will create and will use some objects like as:
 			* **Images**  
+			A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
 			An image is a read-only template with instructions for creating a Docker *container*. An image could be based on another image, with additional customization. You might create your own image or you can choose those created by others and published a registry.
 			* **Containers**  
 			Container is a runnable instance of an image. A container is defined by its imge as well as any configuration options you provide to it when you create or start it. When container is removed, any changes to its state thare are not sotred in persistent storage disappear.
