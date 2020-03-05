@@ -1,14 +1,13 @@
-package com.example.firstproject;
+package com.cloudurable.helloworld;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-public class DemoApplication {
+public class HelloWorldApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(HelloWorldApplication.class, args);
 	}
 
 }

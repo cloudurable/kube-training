@@ -5,6 +5,18 @@ Kubernetes Training
 ## Working on Hello world
 Created Spring Boot file with IDE.
 
+To compile
+
+```sh
+./gradlew compileJava
+```
+
+To run
+
+```sh
+./gradlew bootRun
+
+```
 
 ## Outlines
 
