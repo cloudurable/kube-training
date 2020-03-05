@@ -1,21 +1,25 @@
 # kube-training
-Kubernetes Training 
+Kubernetes Training
 
 
-## Outlines 
+## Working on Hello world
+Created Spring Boot file with IDE.
+
+
+## Outlines
 
 * Core Concepts
 	* uServices
 		* Intro
 			* **Definition**  
-			A microservice is essentially an autonomous software component that is independently upgradeable and scalable.	
+			A microservice is essentially an autonomous software component that is independently upgradeable and scalable.
 			* **Why Microservices?**  
 			With microservices, your code is broken into independent services that run as separate processes. Output from one service is used as an input to another in an orchestration of independent, communicating services. Microservices is especially useful for businesses that do not have a pre-set idea of the array of devices its applications will support. By being device- and platform-agnostic, microservices enables businesses to develop applications that provide consistent user experiences across a range of platforms, spanning the web, mobile, IoT, wearables and fitness tracker environments.
 			* **Scale and Distribution**  
 			With uServices you can scale and distribute your application horizontally, only in the necessary services and not on your entire application, making it more intelligent and efficient in terms of performance and costs. Currently, cloud structures and uServices have Autoscaling functionality, which can increase the number of services when demand is high and the number of instances decreases when there is no demand, helping you in reducing costs.
-				
+
 	* Container Orchestrations with Kubernetes
-		
+
 	* Docker containers
 		* **What is a container?**  
 		A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
@@ -44,7 +48,7 @@ Kubernetes Training
 			* Health monitoring of containers and hosts;
 			* Configuration of an application in relation to the containers running it.  
 		An exemple of container orchestrator is **Kubernetes** or **Docker Swarm**.
-			
+
 	* **Kubernetes**
 		* **What is?**  
 		Originally developed by Google, Kubernetes has established itself as the *de facto* standard for container orchestration. It continues to gain popularity with DevOps pratictoners because it allows them to deliver a self-service Platform-as-a-Service (PaaS) that creates a layer abstraction for development teams and Kubernetes is also extremely portable. You can run Kubernetes projects on Amazon Web Services (AWS), Microsoft Azure (AKS), the Google Cloud Plataform (GCP), Red Hat OpenShift, or in on-premise installations. You can move workloads without having to redesign your applications or completely rethink your infrastructure.
@@ -60,15 +64,15 @@ Kubernetes Training
 			The basic sheduling unit, which consists of one or more containers guaranteed to be colocated on the host machine and able to share resources. You describe the desired state of the containers in a pod through a YAML or JSON object called a PodSpec. These objects are passed to the kubelet through the API server.
 			* **Deployments, replicas, and ReplicaSets**  
 			A deployment is a YAML object that defines the pods and the number of container instances, called replicas, for each pod. You define the number of replicas you want to have running in the cluster via ReplicaSet, which is part of the deployment object.
-		
-		
-		* **Containers Pods, Deployments and Services** 
-			
-			
-			
-	    		
-			
-			
+
+
+		* **Containers Pods, Deployments and Services**
+
+
+
+
+
+
 * Spring Boot with Kubernetes
 	* Spring Boot and Kubernetes basics
 		* Intro
@@ -79,85 +83,85 @@ Kubernetes Training
 		* Lab Basic Spring App
 		* Lab Docker and Kustomize
 		* Lab Deploy app to Kubernetes (KIND, MiniKube, OpenShift CodeReady, GKE or EKS or ... etc.)  
-	* Spring Boot and Kubernetes collaborating services 
-		* Multiple services 
+	* Spring Boot and Kubernetes collaborating services
+		* Multiple services
 		* Front end and back end
-		* Ingress rules and loadbalancers 
+		* Ingress rules and loadbalancers
 		* Spring Boot demo
 		* Lab Basic Spring App
 		* Lab Docker and Konfig
 		* Lab Deploy app to Kubernetes (KIND, MiniKube, OpenShift CodeReady, etc.)  	
-	* Spring Config 
+	* Spring Config
 		* Intro
-	   	* Detail 
+	   	* Detail
 	   	* Detail
 		* Config Maps
 		* Mounting volumes
 		* Spring Profiles
-		* ... 
-		* Using Spring config 
+		* ...
+		* Using Spring config
 		* Using Spring config with Kubernetes config sets
-		* Lab	
-		* Lab	
-		* Lab	
-		* Lab	
-	* Logging, DaemonSets, EFK 
+		* Lab
+		* Lab
+		* Lab
+		* Lab
+	* Logging, DaemonSets, EFK
 		* Use Logging
 		* Understanding Spring log support and sl4j & logback
 		* Change log Level
 		* Understanding Kubernetes Daemon sets redux
 		* Setting up FluentD daemon sets
-		* ElasticSearch and Kibana for log aggregation 
+		* ElasticSearch and Kibana for log aggregation
 		* Lab setting up logging with Spring Boot and log4j
-		* Lab viewing logs from Kubernetes 
-		* Lab log aggregation with fluentd 
+		* Lab viewing logs from Kubernetes
+		* Lab log aggregation with fluentd
 		* Using Kibana
 	* Health checks and K8s probes
 		* Intro
 		* Spring Health checks
-		* Health Details 
+		* Health Details
 		* Custom health checks in Spring
 		* Build Info
-		* Kubernetes liveness probes 
+		* Kubernetes liveness probes
 		* Kubernetes ready probes
 		* Lab setting up Spring Health Checks
 		* Lab setting up a custom Spring Health Check
-		* Lab setting up liveness and ready probes in Kubernetes 
+		* Lab setting up liveness and ready probes in Kubernetes
 	* Metrics and KPIs
 		* Intro
 		* Spring KPIs
-		* Prometheus and Kubernetes 
+		* Prometheus and Kubernetes
 		* Custom KPIs in Spring
 		* Basics of Helm
 		* Built-in KPIs
 		* Lab setting up Spring KPIs
 		* Lab setting up a metfics and custom metrics in Spring
-		* Lab setting up Prometheus with helm in Kubernetes 
+		* Lab setting up Prometheus with helm in Kubernetes
 		* Lab setting up Prometheus annotations in Kubernetes
-		* Lab exploring Prometheus 
-		* Understanding Grafana 
-		* Lab Setting up a grafana dashboard 
+		* Lab exploring Prometheus
+		* Understanding Grafana
+		* Lab Setting up a grafana dashboard
 	* Istio and Service Mesh
-		* Replacing Kubernetes Ingress rules with Istio 
+		* Replacing Kubernetes Ingress rules with Istio
 		* ... Lot of stuff here
-		* ... 
-		* Lab 
+		* ...
+		* Lab
 	* Security
 		* Intro
 		* Lab Enable Security
-	
+
 * Advanced Kubernetes
-    * Containers Pods, Deployments and Services 
+    * Containers Pods, Deployments and Services
     * Kubernetes Architecture 	
 
-	
-*** Optional 
-	* Reactive	
+
+*** Optional
+	* Reactive
 	   * Detail  
 	   * Lab
 	   * Lab
-	   * Lab 
-	
+	   * Lab
+
 
 # Future Stuff
 * Node JS
@@ -166,12 +170,12 @@ Kubernetes Training
 * Go
 
 
-OpenShift 
+OpenShift
 
 Red Hat OpenShift on AWS
 
 
-Spring Boot and OpenShift 
+Spring Boot and OpenShift
 https://learn.openshift.com/middleware/courses/middleware-spring-boot/
 
 
@@ -198,7 +202,7 @@ OSE docs
 https://docs.openshift.com/container-platform/4.2/service_mesh/service_mesh_arch/understanding-ossm.html
 
 
-OSE mini container 
+OSE mini container
 
 
 https://developers.redhat.com/products/codeready-containers/overview
