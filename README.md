@@ -18,6 +18,19 @@ To run
 
 ```
 
+To test
+
+```sh
+$ curl localhost:8080 && echo ""
+
+###Output
+<html><body>Hello World</body><html>
+
+```
+To see in [browser click here](http://localhost:8080).
+
+ 
+
 ## Outlines
 
 * Core Concepts
