@@ -2,23 +2,53 @@
 
 ## Ingress
 
-TODO Explain what Ingress is and how it was added in Kubernetes 1.16.
-Link to Ingress docs. Link to NGINX Ingress controller.
+Ingress is an API object that manages external access and exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource.
+It can provide load balancing, SSL termination and name-based virtual hosting.
 
- Going to ...
+You can see more about [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) and [NGINX Ingress controller](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/) clicking in the links.
 
-#### Enable Minikube ingress  
+
+ In this tutorial you will learn how to implement a Ingress Nginx on minikube
+
+#### Start your Minikube cluster
+
+To start your Minikube cluster, run the command:
+
+```sh
+$ minikube start
+```
+##### Output
+```sh
+🎉  minikube 1.8.2 is available! Download it: https://github.com/kubernetes/minikube/releases/tag/v1.8.2
+💡  To disable this notice, run: 'minikube config set WantUpdateNotification false'
+
+🙄  minikube v1.7.3 on Linuxmint 18.3
+✨  Using the kvm2 driver based on user configuration
+👍  Kubernetes 1.17.3 is now available. If you would like to upgrade, specify: --kubernetes-version=1.17.3
+⌛  Reconfiguring existing host ...
+🔄  Starting existing kvm2 VM for "minikube" ...
+🐳  Preparing Kubernetes v1.16.0 on Docker 19.03.6 ...
+🚀  Launching Kubernetes ...
+🌟  Enabling addons: default-storageclass, ingress, storage-provisioner
+🏄  Done! kubectl is now configured to use "minikube"
+```
+
+Minikube is working.
+
+
+#### Enable Minikube ingress addon
+
+Run this command to enable Minikube ingress addon
 ```sh
 $ minikube addons enable ingress
 ```
-
-The above...
-
-Next ...
+##### Output
+```sh
+🌟  The 'ingress' addon is enabled
+```
 
 #### You can see the nginx-ingress-controller is installed in the kube-system namespace
 ```sh
-
 $ kubectl get pods -n kube-system
 NAME                                        READY   STATUS    RESTARTS   AGE
 ...
@@ -29,7 +59,8 @@ nginx-ingress-controller-6fc5bcc8c9-88ghf   1/1     Running   0          89s
 ...
 
 ```
-Note that ...
+Note that now you have a pod (nginx-ingress) running.
+
 
 Now get the URL...
 
@@ -46,6 +77,12 @@ The above shows ...
 
 Next ...
 
+
+#### Ingress resource
+
+Now you need to create an Ingress resource. It sends traffic to your service.
+
+Create a file hello-ingress.yaml from the following:
 #### hello-ingress.yaml
 ```yaml
 apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
@@ -65,32 +102,19 @@ spec:
           servicePort: 8080
 
 ```
-This defines a ... which is ... so now you should see ...
+This defines an Ingress resource sending the traffic on port 8080 to pod (hello-world.info).
 
-Next ...
+You need to apply the resource created.
 
-#### Use minikube service to show the URL
 ```sh  
 $ kubectl apply -f hello-ingress.yaml
-
+```
 ### Output
+```sh
 ingress.networking.k8s.io/hello-world-ingress created
 ```
 
-The above ...
-
-Since you don't have a local DNS server, you need to edit the ...
-
-
-#### Add entry to /etc/host file  
-
-```sh  
-# echo "$(minikube ip)" hello-world.info >> /etc/hosts
-```
-
-The above ...
-
-Next, you...
+Next, you need to verify if the new ingress entry was created.
 
 #### Show the new ingress entry  
 
@@ -106,17 +130,26 @@ hello-world-ingress   hello-world.info   192.168.39.173   80        93s
 ```
 The above ...
 
+Since you don't have a local DNS server, you need to edit the host file.
+
+You can edit with your preffered text editor or type the following command:
+
+#### Add entry to /etc/host file  
+
+```sh  
+# echo "$(minikube ip)" hello-world.info >> /etc/hosts
+```
+
 #### Show the contents of the /etc/host file
 ```sh
 $ cat /etc/hosts
 127.0.0.1	localhost
-127.0.1.1	rick-linux
 ...
 192.168.39.173	hello-world.info
 ```
-See that the ...
+See that the entry was created.
 
-#### Now ping the URL ...
+#### Now ping the URL
 
 ```sh
 $ ping hello-world.info
@@ -132,9 +165,15 @@ rtt min/avg/max/mdev = 0.223/0.330/0.381/0.063 ms
 
 ```
 
+Great the pod is returning the ping.
+
+To finalize test using the curl command.
+
 #### Curl it  
 ```sh
 $ curl hello-world.info
+```
+##### Output
+```sh
 <html><body><H1>Hello World</H1></body></html>
 ```
-TODO move ingress to another tutorail 
