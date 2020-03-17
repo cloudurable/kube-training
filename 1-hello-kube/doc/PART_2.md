@@ -1,5 +1,56 @@
 # Running App Hello World in Docker
 
+###Installing Docker
+
+To run this tutorial you will need to install the Docker. The installation package available in the official Ubuntu repository may not be the latest version. Follow the steps to ensure that you get the latest Docker version.
+
+To do that, we’ll add a new package source, and then install the package.
+
+Update your existing list of packages:
+```sh
+$ sudo apt update
+```
+
+You need to install a few prerequisite packages which let **apt** use packages over HTTPS
+```sh
+$ sudo apt install apt-transport-https ca-certificates software-properties-common
+```
+
+Now you need to add the **GPG** key for the official Docker repository to ensure the downloads are valid:
+```sh
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+##### Output  
+```sh
+OK
+```
+
+You need to add a new package repository (docker) to APT sources
+```sh
+$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+```
+##### Output
+```sh
+Get:1 https://download.docker.com/linux/ubuntu bionic InRelease [64.4 kB]
+Hit:2 http://us.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:3 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:4 http://us.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:5 http://us.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Get:6 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages [11.0 kB]
+Fetched 75.5 kB in 1s (115 kB/s)
+Reading package lists... Done
+```
+
+Update the package database
+```sh
+$ sudo apt update
+```
+
+Install Docker  
+ ```sh
+sudo apt install docker-ce
+ ```
+
 ###Testing docker installation
 
 Before we try to create our docker image we need to test if the docker is working. To do that I run the command:
@@ -97,6 +148,13 @@ $ docker rm -f $(docker ps -aq)
 ### Build our .jar file for project Hello World
 >It needs to be executed in the project root directory
 ```sh
+$ cd ~/firstproject/HelloWorld/
+```
+> "~" represents your home folder
+
+Build your HelloWorld application
+
+```sh
 $ ./gradlew build
 ```  
 ##### Output  
@@ -118,7 +176,9 @@ hello-world-0.0.1-SNAPSHOT.jar
 ```
 ### Dockerfile  
 The Dockerfile is used to docker builds your own image.
->It needs to be created in your root project directory  
+>Use your text editor(Nano, Vi, ...) and create the "Dockerfile". It needs to be created in your root project directory  
+
+Dockerfile
 ```
 # Use an existing docker image as a base
 FROM openjdk
@@ -192,7 +252,6 @@ $ docker ps
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
 62d5f63f5e3c        hw                  "java -jar /app.jar"   4 minutes ago       Up 4 minutes                            gifted_swirles
-robert@rick-linux ~/github/kube-training/hello-kube/services/hello-world $
 ```
 > The command show us that the image is running, yes we did it!  
 
@@ -207,7 +266,7 @@ $ docker exec -it <container name> /bin/bash
 > And to get a shell in the container (/bin/bash)  
 ##### Output
 ```sh
-robert@rick-linux ~/github/kube-training/hello-kube/services/hello-world $ docker exec -it gifted_swirles /bin/bash
+$ docker exec -it gifted_swirles /bin/bash
 bash-4.2#
 ```  
 Now we can test our app Hello World!
@@ -222,6 +281,9 @@ bash-4.2# curl localhost:8080
 **Good, it's working!**  
 
 Type ```exit``` to exit the container
+
+Return to the previous terminal and stop the container.  
+Press **Ctrl + c**
 
 ### Now it is time to expose the container to outside!
 First, let's change our Dockerfile, adding line:
@@ -275,13 +337,13 @@ Let's run our new container:
 ```sh
 $ docker run hw
 ```
-Let's see if the container is running. Open other terminal:
+Let's see if the container is running. Open another terminal:
 ```sh
 $ docker ps
 ```
 ##### Output
 ```sh
-robert@rick-linux ~/github/kube-training/hello-kube/services/hello-world $ docker ps
+$ docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
 4efa3cf7f105        hw                  "java -jar /app.jar"   3 minutes ago       Up 3 minutes        8080/tcp            suspicious_pike
 ```  
@@ -290,11 +352,11 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 But, what is the container Ip address.
 Use the command:
 ```sh
-$ docker inspect <docker-id>
+$ docker inspect <CONTAINER_ID>
 ```
 ##### Output
 ```sh
-robert@rick-linux ~/github/kube-training/hello-kube/services/hello-world $ docker inspect 4efa3cf7f105
+$ docker inspect 4efa3cf7f105
 [
     {
         "Id": "4efa3cf7f105184b79c9b5a5d958d5f8f41847795022b4034bbeb3b9a274304b",
@@ -304,187 +366,7 @@ robert@rick-linux ~/github/kube-training/hello-kube/services/hello-world $ docke
             "-jar",
             "/app.jar"
         ],
-        "State": {
-            "Status": "running",
-            "Running": true,
-            "Paused": false,
-            "Restarting": false,
-            "OOMKilled": false,
-            "Dead": false,
-            "Pid": 16738,
-            "ExitCode": 0,
-            "Error": "",
-            "StartedAt": "2020-03-07T03:27:53.052515931Z",
-            "FinishedAt": "0001-01-01T00:00:00Z"
-        },
-        "Image": "sha256:18054b26c10cfe335e30cc80c84b9fd645247fc8e34ed32f2236a905c924ab8d",
-        "ResolvConfPath": "/var/lib/docker/containers/4efa3cf7f105184b79c9b5a5d958d5f8f41847795022b4034bbeb3b9a274304b/resolv.conf",
-        "HostnamePath": "/var/lib/docker/containers/4efa3cf7f105184b79c9b5a5d958d5f8f41847795022b4034bbeb3b9a274304b/hostname",
-        "HostsPath": "/var/lib/docker/containers/4efa3cf7f105184b79c9b5a5d958d5f8f41847795022b4034bbeb3b9a274304b/hosts",
-        "LogPath": "/var/lib/docker/containers/4efa3cf7f105184b79c9b5a5d958d5f8f41847795022b4034bbeb3b9a274304b/4efa3cf7f105184b79c9b5a5d958d5f8f41847795022b4034bbeb3b9a274304b-json.log",
-        "Name": "/suspicious_pike",
-        "RestartCount": 0,
-        "Driver": "overlay2",
-        "Platform": "linux",
-        "MountLabel": "",
-        "ProcessLabel": "",
-        "AppArmorProfile": "docker-default",
-        "ExecIDs": null,
-        "HostConfig": {
-            "Binds": null,
-            "ContainerIDFile": "",
-            "LogConfig": {
-                "Type": "json-file",
-                "Config": {}
-            },
-            "NetworkMode": "default",
-            "PortBindings": {},
-            "RestartPolicy": {
-                "Name": "no",
-                "MaximumRetryCount": 0
-            },
-            "AutoRemove": false,
-            "VolumeDriver": "",
-            "VolumesFrom": null,
-            "CapAdd": null,
-            "CapDrop": null,
-            "Dns": [],
-            "DnsOptions": [],
-            "DnsSearch": [],
-            "ExtraHosts": null,
-            "GroupAdd": null,
-            "IpcMode": "shareable",
-            "Cgroup": "",
-            "Links": null,
-            "OomScoreAdj": 0,
-            "PidMode": "",
-            "Privileged": false,
-            "PublishAllPorts": false,
-            "ReadonlyRootfs": false,
-            "SecurityOpt": null,
-            "UTSMode": "",
-            "UsernsMode": "",
-            "ShmSize": 67108864,
-            "Runtime": "runc",
-            "ConsoleSize": [
-                0,
-                0
-            ],
-            "Isolation": "",
-            "CpuShares": 0,
-            "Memory": 0,
-            "NanoCpus": 0,
-            "CgroupParent": "",
-            "BlkioWeight": 0,
-            "BlkioWeightDevice": [],
-            "BlkioDeviceReadBps": null,
-            "BlkioDeviceWriteBps": null,
-            "BlkioDeviceReadIOps": null,
-            "BlkioDeviceWriteIOps": null,
-            "CpuPeriod": 0,
-            "CpuQuota": 0,
-            "CpuRealtimePeriod": 0,
-            "CpuRealtimeRuntime": 0,
-            "CpusetCpus": "",
-            "CpusetMems": "",
-            "Devices": [],
-            "DeviceCgroupRules": null,
-            "DiskQuota": 0,
-            "KernelMemory": 0,
-            "MemoryReservation": 0,
-            "MemorySwap": 0,
-            "MemorySwappiness": null,
-            "OomKillDisable": false,
-            "PidsLimit": 0,
-            "Ulimits": null,
-            "CpuCount": 0,
-            "CpuPercent": 0,
-            "IOMaximumIOps": 0,
-            "IOMaximumBandwidth": 0,
-            "MaskedPaths": [
-                "/proc/asound",
-                "/proc/acpi",
-                "/proc/kcore",
-                "/proc/keys",
-                "/proc/latency_stats",
-                "/proc/timer_list",
-                "/proc/timer_stats",
-                "/proc/sched_debug",
-                "/proc/scsi",
-                "/sys/firmware"
-            ],
-            "ReadonlyPaths": [
-                "/proc/bus",
-                "/proc/fs",
-                "/proc/irq",
-                "/proc/sys",
-                "/proc/sysrq-trigger"
-            ]
-        },
-        "GraphDriver": {
-            "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/47be51b452999f3b2fba6811425ad01538a334f72a5d0ef062ba396956881660-init/diff:/var/lib/docker/overlay2/6c80a16c2df29a3b7c18fe475506f4d8a0d3dd3689d267b56aad90e31ed2b990/diff:/var/lib/docker/overlay2/491a6708141f97ee36525b885285aca2652aed1069f4f0b0aa2e53930f3066ee/diff:/var/lib/docker/overlay2/735b6ce11e1801c151b5ccfeaef23f2f03f275d2e0dd625e157beb5113468d54/diff:/var/lib/docker/overlay2/c19dba80440a93fd56b9176ca45afd30ee4c82c5351a21cce5a237da3f9f6120/diff",
-                "MergedDir": "/var/lib/docker/overlay2/47be51b452999f3b2fba6811425ad01538a334f72a5d0ef062ba396956881660/merged",
-                "UpperDir": "/var/lib/docker/overlay2/47be51b452999f3b2fba6811425ad01538a334f72a5d0ef062ba396956881660/diff",
-                "WorkDir": "/var/lib/docker/overlay2/47be51b452999f3b2fba6811425ad01538a334f72a5d0ef062ba396956881660/work"
-            },
-            "Name": "overlay2"
-        },
-        "Mounts": [],
-        "Config": {
-            "Hostname": "4efa3cf7f105",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": true,
-            "AttachStderr": true,
-            "ExposedPorts": {
-                "8080/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/java/openjdk-13/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "LANG=en_US.UTF-8",
-                "JAVA_HOME=/usr/java/openjdk-13",
-                "JAVA_VERSION=13.0.2",
-                "JAVA_URL=https://download.java.net/java/GA/jdk13.0.2/d4173c853231432d94f001e99d882ca7/8/GPL/openjdk-13.0.2_linux-x64_bin.tar.gz",
-                "JAVA_SHA256=acc7a6aabced44e62ec3b83e3b5959df2b1aa6b3d610d58ee45f0c21a7821a71"
-            ],
-            "Cmd": [
-                "java",
-                "-jar",
-                "/app.jar"
-            ],
-            "ArgsEscaped": true,
-            "Image": "hw",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": null,
-            "OnBuild": null,
-            "Labels": {}
-        },
-        "NetworkSettings": {
-            "Bridge": "",
-            "SandboxID": "412d6300686334f614f81dd1bb6def58601f36f59d57a7bdc554a9870a62367a",
-            "HairpinMode": false,
-            "LinkLocalIPv6Address": "",
-            "LinkLocalIPv6PrefixLen": 0,
-            "Ports": {
-                "8080/tcp": null
-            },
-            "SandboxKey": "/var/run/docker/netns/412d63006863",
-            "SecondaryIPAddresses": null,
-            "SecondaryIPv6Addresses": null,
-            "EndpointID": "7d98722ac9de147edcff1dd7bbf0352aab2d0f74f88c3583ba0583fa93ffaf73",
-            "Gateway": "172.17.0.1",
-            "GlobalIPv6Address": "",
-            "GlobalIPv6PrefixLen": 0,
-            "IPAddress": "172.17.0.2",
-            "IPPrefixLen": 16,
-            "IPv6Gateway": "",
-            "MacAddress": "02:42:ac:11:00:02",
+        ...
             "Networks": {
                 "bridge": {
                     "IPAMConfig": null,
@@ -506,7 +388,7 @@ robert@rick-linux ~/github/kube-training/hello-kube/services/hello-world $ docke
     }
 ]
 ```
-> This time I used 4efa3cf7f105 (CONTAINER_ID)
+> This time I used 4efa3cf7f105 (CONTAINER_ID)  
 > See the IP Address - "IPAddress": "172.17.0.2"
 
 Testing application:  
