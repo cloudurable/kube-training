@@ -16,8 +16,9 @@ A **Service** is an abstraction which defines a logical set of Pods and a policy
 
 An **Ingress** rules exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.
 
-Before we create the manifest file, first let's start up minikube.  (Minikube status)
+Before we create the manifest file, first let's start up minikube.  
 
+Open a new terminal and type the following:
 #### Start minikube
 ```sh
 $ minikube start
@@ -28,9 +29,11 @@ The above will start minikube and then we can access our Kubernetes environment.
 
 Next, you create a manifest file that contains a **service** and a **deployement** definitions.  
 
-The service specification creates a new **service** object named “hello-world”, which targets TCP port 8080 on any Pod with the app=hello-world label. The service tipe is NodePort that exposes the servicon each Node's IP at a static port. For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, that’s outside of your cluster.You’ll be able to contact the NodePort Service, from outside the cluster, by requesting "NodeIP:NodePort".  
+The service specification creates a new **service** object named “hello-world”, which targets TCP port 8080 on any Pod with the app=hello-world label.  
+The service type is **NodePort** that exposes the service on each Node's IP at a static port. For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, that’s outside of your cluster.You’ll be able to contact the NodePort Service, from outside the cluster, by requesting "NodeIP:NodePort".  
 
-The deployment specification creates a single **pod** object named "hello-world", that uses our docker container previously created and uploaded to your docker hub "cloudurable/hello-kube:0.0.1". You will define the port that you will use "8080" and the commands that your pod will run "["java", "-jar", "/app.jar"]" when it is created.
+The deployment specification creates a single **pod** object named "hello-world", that uses our docker container previously created and uploaded to our docker hub "cloudurable/hello-kube:0.0.1".  
+You will define the port that you will use "8080" and the commands that your pod will run "["java", "-jar", "/app.jar"]" when it is created.
 
 
 #### hello-world.yaml
