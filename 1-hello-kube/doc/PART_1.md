@@ -4,35 +4,75 @@ In this guide, you will deploy the Spring Boot hello-world application in an Ubu
 
 In this tutorial you need:
 
+* Curl
+* Sdkman
 * Java
+* Gradle
 * Spring Boot IDE
 
-#### Install Java - Open JDK - Ubuntu
+#### Install curl
 
 **Prerequisites**
 
-Before continuing with this tutorial, make sure you are logged in as a user with sudo privileges.
+Before continuing with this tutorial, make sure you are logged in as a user with **sudo** privileges.
 
-Update the apt package index with:
+curl installation
 ```sh
-$ sudo apt update
+$ sudo apt install curl
 ```
 
-Install the default Java OpenJDK package with:
-```sh
-$ sudo apt install default-jdk
-```
-
-Verify the installation, by running the following command which will print the Java version:
+#### Install SDKMAN
+Now you will need to install sdkman. It is a command line tool that allows you to install different versions of Java, Gradle, Maven and more.
 
 ```sh
-$ java -version
+$ curl -s "https://get.sdkman.io" | bash
 ```
-
 ##### Output
 ```sh
-openjdk version "13.0.2" 2020-01-14
-OpenJDK Runtime Environment AdoptOpenJDK (build 13.0.2+8)
+...
+All done!
+Please open a new terminal, or run the following in the existing one:
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+Then issue the following command:
+    sdk help
+Enjoy!!!
+```
+
+You need run the following command:
+```sh
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+```
+
+To ensure that installation succeeded:
+```sh
+$ sdk version
+```
+##### Output
+```sh
+SDKMAN 5....
+```
+
+#### Install Java
+To install java type the command:
+```sh
+$ sdk install java
+```
+
+#### Install Gradle
+To install gradle type the command:
+```sh
+$ sdk install gradle
+```
+
+You can check the installations:
+```sh
+$ sdk current
+```
+##### Output
+```sh
+Using:
+gradle: <version>
+java: <version>
 ```
 
 #### Install Spring Boot IDE (Spring Tool Suite)
@@ -57,7 +97,7 @@ $ cd sts
 ```
 ##### Output
 ```sh
-~/Downloads/java $
+~/Downloads/sts $
 ```
 
 Download Spring Tool Suite
@@ -141,7 +181,7 @@ You will see Spring Web in the selected dependencies
 
 Now click in the button **Generate** to download your initializator.
 
-Open a terminal and create a new folder
+Open a **new** terminal and create a new folder
 ```sh
 $ mkdir firstproject
 ```
@@ -215,12 +255,18 @@ Browse and find the folder HelloWorld
 Click in Finish and wait to finish
 ![image](https://user-images.githubusercontent.com/32839242/76473713-9ef0cb80-63b6-11ea-8a99-34ef66ec3e0e.png)
 
-Let`s create your Java Controler
+Let`s create your Java Controler  
 In your main app you will need to create a new class
-![image](https://user-images.githubusercontent.com/32839242/76474123-dca22400-63b7-11ea-9e51-162f992f6ab2.png)
+Click on your /src/main/java main app
+![image](https://user-images.githubusercontent.com/32839242/76474123-dca22400-63b7-11ea-9e51-162f992f6ab2.png)  
 
-The name is HelloWorldController
+Then click on **File->New Class**
+
+The name is **HelloWorldController**  
+
 ![image](https://user-images.githubusercontent.com/32839242/76474971-a4501500-63ba-11ea-8469-d728afe7325b.png)
+
+Click on **Finish**
 
 ![image](https://user-images.githubusercontent.com/32839242/76477975-47f1f300-63c4-11ea-99bf-e59b986d2b4a.png)
 
@@ -241,8 +287,9 @@ public class HelloWorldController {
 
 }
 ```
-Gradle build
+#### Gradle build
 
+Return to the previous terminal and type the following command:
 ```sh
 $ gradle build
 ```
@@ -256,7 +303,7 @@ BUILD SUCCESSFUL in 9s
 ```
 Now, you need to run this command to test your Hello World!
 ```sh
-![image](https://user-images.githubusercontent.com/32839242/76550269-18d49380-644f-11ea-9eb4-142525538b55.png)
+$ gradle run 
 ```
 ##### Output
 ```sh
