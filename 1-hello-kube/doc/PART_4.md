@@ -24,7 +24,7 @@ apiserver: Running
 kubeconfig: Running
 ```
 
-If your minikube is running go to the next step.  
+If your minikube is running go to the **next step**.  
 
 To start your Minikube cluster, run the command:
 
