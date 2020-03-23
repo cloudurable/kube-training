@@ -24,7 +24,7 @@ apiserver: Running
 kubeconfig: Running
 ```
 
-If your minikube is running go to the next step.  
+If your minikube is running go to the **next step**.  
 
 To start your Minikube cluster, run the command:
 
@@ -78,22 +78,44 @@ nginx-ingress-controller-6fc5bcc8c9-88ghf   1/1     Running   0          89s
 ```
 Note that now you have a pod (**nginx-ingress**) running.
 
+You can see if your Hello World app is running typing the command:  
+```sh
+$ kubectl get pods
+```
+##### Output
+```sh
+NAME READY STATUS RESTARTS AGE
+hello-world-f4ffcdf47-twkbf 1/1 Running 1 4d20h
+```  
+If you didn't see any pod which Hello World name than return to Tutorial 3  
 
-Now get the URL...
+Now you need to verify if the **service** was created and was available on a node port
+```sh
+$ kubectl get service hello-world
+```
+##### Output
+```sh
+NAME  TYPE  CLUSTER-IP  EXTERNAL-IP PORT(S) AGE
+hello-world NodePort  10.109.226.93 8080:31127/TCP  4d21h
+```
+That means you have a pod running inside a cluster with the port 8080 mapped in port 31127.  
+Let's check if it is true.Type the command:
 
 #### Use minikube service to show the URL
 
 ```sh  
 $ minikube service hello-world --url
-
-### Output
+```
+##### Output
+```sh
 http://192.168.39.173:31192
 ```
 
-The above shows ...
+The above shows that the **minikube** enabled a port forward to your pod.  
 
-Next ...
+Copy this address and paste to your Browser
 
+![image](https://user-images.githubusercontent.com/32839242/77355945-a0998800-6d02-11ea-91bc-b8259c217ec8.png)
 
 #### Ingress resource
 
@@ -145,7 +167,7 @@ edge                  minikube.me        192.168.39.173   80, 443   4d23h
 hello-world-ingress   hello-world.info   192.168.39.173   80        93s
 
 ```
-The above ...
+Your entry was created.
 
 Since you don't have a local DNS server, you need to edit the host file.
 
