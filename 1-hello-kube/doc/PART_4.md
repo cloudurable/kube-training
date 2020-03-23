@@ -12,6 +12,20 @@ You can see more about [Ingress](https://kubernetes.io/docs/concepts/services-ne
 
 #### Start your Minikube cluster
 
+Check if your minikube is running  
+```sh
+$ minikube status
+```
+##### Output
+```sh
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Running
+```
+
+If your minikube is running go to the next step.  
+
 To start your Minikube cluster, run the command:
 
 ```sh
@@ -50,6 +64,9 @@ $ minikube addons enable ingress
 #### You can see the nginx-ingress-controller is installed in the kube-system namespace
 ```sh
 $ kubectl get pods -n kube-system
+```
+##### Output
+```sh
 NAME                                        READY   STATUS    RESTARTS   AGE
 ...
 etcd-minikube                               1/1     Running   1          4d22h
@@ -59,7 +76,7 @@ nginx-ingress-controller-6fc5bcc8c9-88ghf   1/1     Running   0          89s
 ...
 
 ```
-Note that now you have a pod (nginx-ingress) running.
+Note that now you have a pod (**nginx-ingress**) running.
 
 
 Now get the URL...
