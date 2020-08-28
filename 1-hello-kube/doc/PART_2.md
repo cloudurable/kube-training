@@ -1,6 +1,6 @@
 # Running App Hello World in Docker
 
-###Installing Docker
+### Installing Docker
 
 To run this tutorial you will need to install the Docker. The installation package available in the official Ubuntu repository may not be the latest version. Follow the steps to ensure that you get the latest Docker version.
 
